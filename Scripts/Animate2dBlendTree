@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class Animate2dBlendTree : MonoBehaviour
+{
+ 
+    private Animator _animator;
+    private void Awake()
+    {
+      
+        _animator = GetComponent<Animator>();
+    }
+
+
+    void Update()
+    {
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        _animator.SetFloat("MoveX", x);
+        _animator.SetFloat("MoveZ", z);
+
+    }
+}
