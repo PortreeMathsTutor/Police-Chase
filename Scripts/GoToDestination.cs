@@ -4,23 +4,23 @@ using UnityEngine;
 using UnityEngine.AI;
 public class GoToDestination : MonoBehaviour
 {
-    private GameObject _destination;
-    private NavMeshAgent _navMeshAgent;
+   private GameObject _destination;
+    private UnityEngine.AI.NavMeshAgent _navMeshAgent;
     private int _timeer;
     // Start is called before the first frame update
     void Start()
     {
-     
+
         _destination = GameObject.FindGameObjectWithTag("Destination");
-        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         _navMeshAgent.destination = _destination.transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         _timeer += 1;
-      
-        if (_timeer % 200 == 0) { _navMeshAgent.destination = _destination.transform.position; }
+
+        if (_timeer % 600 == 0) { _navMeshAgent.destination = _destination.transform.position; }
     }
 }
