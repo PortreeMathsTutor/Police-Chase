@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Set1DAnimationFloat : MonoBehaviour
+{
+ 
+    private Animator _animator;
+    public float speed;
+    private void Awake()
+    {
+     
+        _animator = GetComponent<Animator>();
+      
+    }
+
+
+    void Update()
+    {
+      float speedZ = Input.GetAxis("Vertical");
+       float speedX = Input.GetAxis("Horizontal");
+        speed = speedZ * speedZ + speedX * speedX;
+        _animator.SetFloat("Speed", speed);
+
+    }
+}
